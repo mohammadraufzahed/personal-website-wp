@@ -1,3 +1,5 @@
 /composer.lock
 /vendor/
 /wordpress/
+dist
+node_modules
