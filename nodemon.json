@@ -1,6 +1,10 @@
 {
   "verbose": true,
-  "watch": ["./scripts", "./styles", "./views"],
-  "ext": "js,json,scss,twig",
+  "watch": [
+    "./scripts",
+    "./styles",
+    "./views"
+  ],
+  "ext": "js,ts,json,scss,twig",
   "exec": "vite build"
 }
