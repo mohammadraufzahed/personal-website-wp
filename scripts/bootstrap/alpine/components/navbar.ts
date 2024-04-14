@@ -5,6 +5,4 @@ Alpine.data('navbar', () => ({
     toggle() {
         this.open = !this.open;
     },
-    init() {
-    }
 }));

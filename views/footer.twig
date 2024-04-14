@@ -1,1 +1,28 @@
-Copyright {{"now"|date('Y')}}
+{% set navbar_items = {
+    '#portfolio': 'Portfolio',
+    '#services': 'Services',
+    '#blog': 'Blog'
+} %}
+
+<div class="w-[90%] lg:w-[97%] h-max p-2 lg:p-10 bg-primary-1 mx-auto mb-4 text-center flex flex-col items-center justify-center gap-16 lg:gap-10">
+    <div class="w-full h-max flex flex-col items-center justify-center gap-4 lg:gap-6">
+        <h3 class="font-viga text-xl lg:text-4xl">Interested in working <br/> together with me?</h3>
+        <p class="font-inter font-normal text-sm lg:text-2xl">I will surely show you how I turn your ideas into amazing
+            websites /
+            mobile apps</p>
+        <button class="font-walter-turncoat text-2xl text-primary-1 bg-black py-2 px-8 rounded-2xl uppercase lg:mt-4">
+            Hire Me
+        </button>
+    </div>
+    <div class="w-full h-max max-w-[1200px] mx-auto flex max-lg:flex-col items-center justify-center lg:justify-between gap-10 py-10 border-black lg:border-y-2">
+        <div>
+            <h2 class="font-viga text-3xl">Mohammad Raufzahed</h2>
+        </div>
+        <div class="max-lg:w-full flex max-lg:flex-col items-center justify-center gap-10 lg:gap-20 max-lg:border-y-2 border-black max-lg:py-6">
+            {% for link, label in navbar_items %}
+                <a href="{{ link }}" class="font-inter font-light text-black text-2xl">{{ label }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <span class="font-inter text-base">All right reserved. {{ "now"|date('Y') }}</span>
+</div>

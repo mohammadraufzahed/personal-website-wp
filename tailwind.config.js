@@ -15,7 +15,8 @@ module.exports = {
             },
             fontFamily: {
                 'walter-turncoat': ['Walter Turncoat', 'arial'],
-                inter: ['Inter Variable', 'arial']
+                inter: ['Inter Variable', 'arial'],
+                viga: ['Viga', 'arial']
             }
         },
     },
