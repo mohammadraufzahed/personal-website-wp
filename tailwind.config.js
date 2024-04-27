@@ -17,7 +17,7 @@ module.exports = {
                 'walter-turncoat': ['Walter Turncoat', 'arial'],
                 inter: ['Inter Variable', 'arial'],
                 viga: ['Viga', 'arial']
-            }
+            },
         },
     },
     plugins: [],

@@ -5,39 +5,46 @@
 } %}
 
 <nav
-        class="relative w-full h-max flex items-center justify-between p-4 lg:px-20 lg:py-7 bg-primary-2"
+        class="relative w-full h-max bg-primary-2"
 >
-    <div class="w-max h-max flex items-center justify-center gap-2">
-        <span class="font-walter-turncoat text-xl lg:text-4xl">MRZ</span>
-        <svg class="hidden lg:block" width="15" height="30" viewBox="0 0 15 30" fill="none"
-             xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M13 16.0241C11.2908 20.1918 9.1751 24.1264 7.15568 28C5.38916 23.9383 3.72674 19.7778 2 15.6852C4.12617 11.499 5.69421 6.65313 7.22721 2C9.59164 6.93627 11.5152 11.694 13 16.0241Z"
-                  stroke="black" stroke-width="3" stroke-miterlimit="1.5" stroke-linecap="round"
-                  stroke-linejoin="round"/>
-        </svg>
-        <svg class="lg:hidden" width="8" height="16" viewBox="0 0 8 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M6.5 8.51205C5.64539 10.5959 4.58755 12.5632 3.57784 14.5C2.69458 12.4692 1.86337 10.3889 1 8.34259C2.06309 6.24948 2.8471 3.82656 3.61361 1.5C4.79582 3.96814 5.75761 6.347 6.5 8.51205Z"
-                  stroke="black" stroke-width="1.5" stroke-miterlimit="1.5" stroke-linecap="round"
-                  stroke-linejoin="round"/>
-        </svg>
-    </div>
-    <div x-data="navbar">
-        <div :data-open="open ? 'true' : 'false'"
-             x-on:click="toggle"
-             class="peer relative group w-max h-max flex flex-col items-center justify-center gap-1 cursor-pointer lg:hidden">
-            <div class="w-[18px] h-[1px] bg-black group-data-[open=true]:rotate-45 transition-all duration-150"></div>
-            <div class="w-[18px] h-[1px] bg-black group-data-[open=true]:opacity-0 transition-all duration-150"></div>
-            <div class="w-[18px] h-[1px] bg-black group-data-[open=true]:-rotate-45 group-data-[open=true]:-translate-y-[0.58rem] transition-all duration-150"></div>
-        </div>
-        <div class="w-full lg:w-max flex flex-row items-center justify-center py-3 gap-10 lg:gap-20 bg-primary-2 border-t-[1px] border-t-black lg:border-none absolute top-full left-0 lg:relative max-lg:transition-all duration-200
+    <div
+            class="w-full flex mx-auto items-center justify-between p-4 lg:px-20 lg:py-7 max-w-[1440px]"
+    >
+        <a href="/">
+            <div class="w-max h-max flex items-center justify-center gap-2">
+                <span class="font-walter-turncoat text-xl lg:text-4xl">MRZ</span>
+                <svg class="hidden lg:block" width="15" height="30" viewBox="0 0 15 30" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M13 16.0241C11.2908 20.1918 9.1751 24.1264 7.15568 28C5.38916 23.9383 3.72674 19.7778 2 15.6852C4.12617 11.499 5.69421 6.65313 7.22721 2C9.59164 6.93627 11.5152 11.694 13 16.0241Z"
+                          stroke="black" stroke-width="3" stroke-miterlimit="1.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+                <svg class="lg:hidden" width="8" height="16" viewBox="0 0 8 16" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M6.5 8.51205C5.64539 10.5959 4.58755 12.5632 3.57784 14.5C2.69458 12.4692 1.86337 10.3889 1 8.34259C2.06309 6.24948 2.8471 3.82656 3.61361 1.5C4.79582 3.96814 5.75761 6.347 6.5 8.51205Z"
+                          stroke="black" stroke-width="1.5" stroke-miterlimit="1.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </a>
+        <div x-data="navbar">
+            <div :data-open="open ? 'true' : 'false'"
+                 x-on:click="toggle"
+                 class="peer relative group w-max h-max flex flex-col items-center justify-center gap-1 cursor-pointer lg:hidden">
+                <div class="w-[18px] h-[1px] bg-black group-data-[open=true]:rotate-45 transition-all duration-150"></div>
+                <div class="w-[18px] h-[1px] bg-black group-data-[open=true]:opacity-0 transition-all duration-150"></div>
+                <div class="w-[18px] h-[1px] bg-black group-data-[open=true]:-rotate-45 group-data-[open=true]:-translate-y-[0.58rem] transition-all duration-150"></div>
+            </div>
+            <div class="w-full lg:w-max flex flex-row items-center justify-center py-3 gap-10 lg:gap-20 bg-primary-2 border-t-[1px] border-t-black lg:border-none absolute top-full left-0 lg:relative max-lg:transition-all duration-200
         max-lg:-translate-y-16 max-lg:-z-10
         max-lg:peer-data-[open=true]:translate-y-0 max-lg:peer-data-[open=true]:z-10
 ">
-            {% for link, label in navbar_items %}
-                <a class="font-inter font-light text-lg lg:text-2xl" href="{{ link }}">{{ label }}</a>
-            {% endfor %}
+                {% for link, label in navbar_items %}
+                    <a class="font-inter font-light text-lg lg:text-2xl" href="{{ link }}">{{ label }}</a>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </nav>
