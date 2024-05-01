@@ -1,0 +1,89 @@
+{% set portfolio = portfolios[0] %}
+{% set services = [
+    {
+        'title': '/ React JS. developement',
+        'description': 'Lorem ipsum dolor sit amet consectetur. Pretium fames dolor adipiscing eros curabitur velit tellus vel.',
+        'number': '01',
+        'color': '#59F9BE'
+    },
+    {
+        'title': 'Backend / Django Developement',
+        'description': 'Lorem ipsum dolor sit amet consectetur. Pretium fames dolor adipiscing eros curabitur velit tellus vel.',
+        'number': '02',
+        'color': '#FBDE4D'
+    },
+    {
+        'title': 'Wordpress Developement',
+        'description': 'Lorem ipsum dolor sit amet consectetur. Pretium fames dolor adipiscing eros curabitur velit tellus vel.',
+        'number': '03',
+        'color': '#A78BFF'
+    }
+] %}
+
+<div class="w-full h-max max-w-[1440px] mx-auto flex flex-col items-start justify-start lg:items-end gap-6 px-4 py-[60px] lg:px-20 lg:py-[152px]">
+    <div class="w-full lg:w-1/2 h-max flex flex-col items-start justify-start">
+        <h2 class="font-viga text-xl md:text-4xl text-left">See what I can do for<br/>
+            you easily.</h2>
+    </div>
+    <div class="w-full h-max flex max-lg:flex-col items-center justify-center lg:justify-between gap-10">
+        <div class="w-full relative max-w-[320px] lg:max-w-[539px]">
+            <div class="relative w-11/12 min-h-[375px] max-w-[320px] lg:max-w-[539px] lg:min-h-[600px] z-10 bg-black flex items-center justify-center"
+                 style="clip-path: polygon(0% 0%, 100% 0%, 95% 53%, 100% 100%, 54% 95%, 0 100%);"
+            >
+                <img class="w-[98%] aspect-auto h-[370px] max-w-[320px] lg:max-w-[539px] lg:h-[593px]"
+                     src="{{ portfolio.thumbnail }}"
+                     alt="{{ portfolio.title }}"
+                     style="clip-path: polygon(0% 0%, 100% 0%, 95% 53%, 100% 100%, 54% 95%, 0 100%);"
+                />
+            </div>
+
+            <svg class="absolute left-0 right-3 mx-auto -bottom-3 lg:hidden" width="59" height="77" viewBox="0 0 59 77"
+                 fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M31.4126 1.27502C31.4553 13.0434 27.4455 34.3309 58.2913 39.4762C39.1432 42.2347 31.826 57.0071 31.4162 75.9555C30.9466 61.6526 32.912 45.137 1.49902 40.6102C31.6485 38.2308 31.2303 13.369 31.4126 1.27502Z"
+                      fill="#FBDE4D" stroke="black" stroke-width="1.2743" stroke-miterlimit="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+            </svg>
+            <svg class="absolute left-0 right-3 mx-auto -bottom-7 max-lg:hidden" width="106" height="139"
+                 viewBox="0 0 106 139"
+                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M56.0112 1.92358C56.0884 23.2093 48.8357 61.7126 104.627 71.0189C69.9938 76.0084 56.7589 102.727 56.0177 137C55.1683 111.13 58.7232 81.2578 1.90576 73.07C56.4378 68.7664 55.6814 23.7983 56.0112 1.92358Z"
+                      fill="#FBDE4D" stroke="black" stroke-width="2.30485" stroke-miterlimit="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg class="absolute -top-[38.9px] right-0.5 lg:hidden" width="59" height="77"
+                 viewBox="0 0 59 77"
+                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M30.9692 0.95752C31.0119 12.7259 27.0021 34.0134 57.8479 39.1587C38.6999 41.9172 31.3826 56.6896 30.9728 75.638C30.5032 61.3351 32.4687 44.8195 1.05566 40.2927C31.2051 37.9133 30.7869 13.0515 30.9692 0.95752Z"
+                      fill="#A78BFF" stroke="black" stroke-width="1.2743" stroke-miterlimit="1.5" stroke-linecap="round"
+                      stroke-linejoin="round"/>
+            </svg>
+            <svg class="absolute -top-[70.0px] right-0.5 max-lg:hidden" width="106" height="138" viewBox="0 0 106 138"
+                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M56.0048 1.60095C56.0821 22.8867 48.8294 61.39 104.621 70.6963C69.9874 75.6858 56.7525 102.405 56.0113 136.677C55.162 110.807 58.7169 80.9352 1.89941 72.7474C56.4314 68.4438 55.675 23.4757 56.0048 1.60095Z"
+                      fill="#A78BFF" stroke="black" stroke-width="2.30485" stroke-miterlimit="1.5"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+        </div>
+        <div class="max-lg:w-full h-max flex flex-col items-center justify-center">
+            {% for service in services %}
+                <section
+                        class="group relative w-full max-w-[640px] h-max flex flex-col items-start justify-start gap-2 py-4 lg:py-10 border-b-[3px] border-b-[var(--primary-color)] transition-colors duration-150 cursor-pointer
+                        lg:border-b-black lg:hover:border-b-[var(--primary-color)]"
+                        style="--primary-color: {{ service.color }}">
+                    <h2 class="relative font-viga text-base sm:text-lg md:text-xl lg:text-3xl z-10">{{ service.number }}
+                        . {{ service.title }}</h2>
+                    <p class="relative font-inter text-sm sm:text-base md:text-lg lg:text-2xl text-[#5C5C5C] z-10">{{ service.description }}</p>
+                    <div class="w-[46px] h-[18px] lg:w-[92px] lg:h-[36px] rounded-2xl bg-[var(--primary-color)] absolute top-5 lg:top-10 left-2
+transition-all duration-200 lg:opacity-0 lg:group-hover:opacity-100
+"></div>
+                </section>
+            {% endfor %}
+        </div>
+    </div>
+</div>
