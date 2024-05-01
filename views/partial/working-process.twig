@@ -1,0 +1,61 @@
+{% set steps = [
+    {
+        number: '01',
+        title: 'Discovery',
+        content: 'Lorem ipsum dolor sit amet consectetur. Pretium fames dolor adipiscing.',
+        color: '#0081A7',
+        progress: 20
+    },
+    {
+        number: '02',
+        title: 'Documention',
+        content: 'Lorem ipsum dolor sit amet consectetur. Pretium fames dolor adipiscing.',
+        color: '#ED9390',
+        progress: 50
+    },
+    {
+        number: '03',
+        title: 'Development',
+        content: 'Lorem ipsum dolor sit amet consectetur. Pretium fames dolor adipiscing.',
+        color: '#7D80DA',
+        progress: 90
+    },
+] %}
+
+<div class="w-full h-max max-w-[1190px] mx-auto px-4 my-10 flex flex-col items-center justify-center gap-6 lg:gap-10">
+    <div class="w-full h-max flex max-lg:flex-col items-start justify-start lg:justify-between lg:items-center gap-4">
+        <div class="w-full lg:w-1/2 flex flex-col items-start justify-start gap-4 lg:gap-6">
+            <h2 class="font-viga text-xl lg:text-4xl">Lets hav a look on my working process</h2>
+            <p class="font-inter text-sm lg:text-2xl text-[#5C5C5C]">Lorem ipsum dolor sit amet, consectetur adipisicing
+                elit. Alias
+                deleniti et facilis
+                fugit iste, neque
+                numquam perferendis quibusdam ratione recusandae totam vero voluptates! Accusantium optio, repellendus?
+                Inventore iusto quisquam sequi.</p>
+        </div>
+        <div class="w-full lg:w-1/2 lg:max-w-[360px] h-max flex flex-col items-start justify-center gap-6 lg:gap-10">
+            {% for step in steps %}
+                <div class="relative h-0.5  bg-[var(--primary-color)]"
+                     style="--primary-color: {{ step.color }}; width: {{ step.progress }}%">
+                    <div class="w-2 h-2 bg-[var(--primary-color)] absolute -right-[9px] -top-[3px]  rotate-45 "></div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="w-full h-max flex flex-col items-center justify-center gap-4 lg:grid grid-cols-3 lg:gap-10">
+        {% for step in steps %}
+            <div
+                    class="w-full py-6 flex flex-col gap-6 items-start justify-start border-b-[3px] border-b-[var(--primary-color)]"
+                    style="--primary-color: {{ step.color }};"
+            >
+                <div>
+                    <div class="w-max flex items-center justify-center gap-6 font-viga text-sm lg:text-2xl">
+                        <span>{{ step.number }}</span>
+                        <span>/ {{ step.title }}</span>
+                    </div>
+                </div>
+                <p class="font-inter text-sm text-[#5C5C5C]">{{ step.content }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
