@@ -1,0 +1,69 @@
+{% set socials = [
+    {
+        icon: 'fa-brands fa-github',
+        color: '#1B1F23'
+    },
+    {
+        icon: 'fa-brands fa-discord',
+        color: '#5865F2'
+    },
+    {
+        icon: 'fa-brands fa-linkedin-in',
+        color: '#006699'
+    },
+    {
+        icon: 'fa-brands fa-whatsapp',
+        color: '#00D95F'
+    },
+    {
+        icon: 'fa-brands fa-telegram',
+        color: '#34AADF'
+    },
+    {
+        icon: 'fa-brands fa-instagram',
+        color: 'linear-gradient(315deg, #FBE18A 0.96%, #FCBB45 21.96%, #F75274 38.96%, #D53692 52.96%, #8F39CE 74.96%, #5B4FE9 100.96%)'
+    }
+] %}
+
+<div class="w-full h-max max-w-[420px] lg:max-w-[1440px] mx-auto flex max-lg:flex-col items-center justify-center gap-6 px-4 mt-20 lg:mt-40">
+    <div class="w-10/12 max-w-[320px] lg:max-w-[514px] bg-primary-3 flex items-center justify-center"
+         style="clip-path: polygon(0% 0%, 100% 0%, 95% 50%, 100% 100%, 50% 95%, 0% 100%);"
+    >
+        <img class="w-11/12 aspect-auto" src="{{ template_uri }}/static/avatar.png" alt="Avatar">
+    </div>
+
+    <div class="w-full h-max flex flex-col max-lg:items-center justify-center gap-6 px-4"
+    ">
+    <h3 class="w-full max-w-[275px] lg:max-w-[549px] font-viga text-xl md:text-2xl lg:text-4xl max-lg:text-center">I’m
+        passionate
+        about
+        pushing <br class="max-lg:hidden"/>
+        my boundaries!</h3>
+
+    <p class="font-inter text-sm text-[#5C5C5C] md:text-lg lg:text-2xl max-lg:text-center">Lorem ipsum dolor sit
+        amet
+        consectetur. Pretium
+        fames dolor adipiscing
+        eros curabitur velit tellus vel.Lorem ipsum dolor sit amet consectetur. </p>
+    <p class="font-inter text-sm text-[#5C5C5C] md:text-lg lg:text-2xl max-lg:text-center">Lorem ipsum dolor sit
+        amet
+        consectetur. Pretium
+        fames dolor adipiscing
+        eros </p>
+
+    <span class="font-viga text-sm sm:text-base md:text-lg lg:text-2xl lg:mt-[96px]">You can find me here:</span>
+    <div class="w-full lg:max-w-max flex items-center justify-center gap-4 md:gap-5 lg:gap-6">
+        {% for social in socials %}
+            <div class="w-10 h-10 p-2 flex items-center justify-center rounded-[10px]"
+                    {% if social.color starts with 'linear-gradient' %}
+                        style="background: {{ social.color }}"
+                    {% else %}
+                        style="background-color: {{ social.color }}"
+                    {% endif %}
+            >
+                <i class="text-white text-[22px] {{ social.icon }}"></i>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
