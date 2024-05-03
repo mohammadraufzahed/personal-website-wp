@@ -1,0 +1,65 @@
+{% set colors = [
+    "#57E0FE",
+    "#59F9BE",
+    "#FBDE4D",
+    "#A78BFF",
+    "#D3FE57"
+] %}
+
+<div class="w-full h-max max-w-[1440px] mx-auto flex flex-col items-center justify-center gap-6 lg:gap-10 mt-10 lg:mt-[160px] px-4 mb-20">
+    <div class="w-full h-max flex flex-col items-center justify-center gap-4">
+        <h2 class="font-viga text-xl md:text-2xl lg:text-4xl">My latest projects</h2>
+        <p class="max-w-[539px] text-center font-inter text-[#5C5C5C] text-sm md:text-lg lg:2xl">I start by learn and
+            research based
+            on client
+            brief
+            and
+            resource to gain about the needs.</p>
+    </div>
+    <div class="w-full h-max flex flex-col items-center justify-center gap-4 lg:gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
+        {% for portfolio in portfolios|slice(-4) %}
+            <div class="w-full h-max min-h-full lg:max-h-[629px] flex lg:flex-col items-center justify-start gap-8 p-2 lg:p-10 rounded-md"
+                 style="background-color: {{ colors[loop.index-1] }}"
+            >
+
+                <div class="relative w-[123px] h-[123px] lg:w-full lg:h-[388px] bg-black flex items-center justify-center"
+                     style="clip-path: polygon(0% 0%, 50% 5%, 100% 0, 95% 50%, 100% 100%, 55% 95%, 0% 100%, 5% 50%);"
+                >
+                    <img class="w-[97%] h-[97%]" src="{{ portfolio.thumbnail }}" alt="{{ portfolio.title }}"
+                         style="clip-path: polygon(0% 0%, 50% 5%, 100% 0, 95% 50%, 100% 100%, 55% 95%, 0% 100%, 5% 50%);"
+                    />
+                </div>
+                <div class="flex flex-col items-start justify-start gap-1 md:gap-2 lg:w-full">
+                    <span class="font-inter text-sm lg:text-2xl">React.JS</span>
+                    <span class="font-inter font-bold text-base lg:text-3xl">{{ portfolio.title }}</span>
+                    <a href="#"
+                       class="font-inter text-sm lg:text-base flex flex-row items-center justify-center gap-2 lg:mt-4">
+                    <span>
+                        Preview
+                    </span>
+                        <svg width="31" height="13" viewBox="0 0 31 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="19" y="6.5" width="8" height="8" transform="rotate(-45 19 6.5)" fill="#FBDE4D"/>
+                            <path d="M26.8868 6.34314L24 3.45639L21.1132 6.34314L24 9.22989L26.8868 6.34314ZM0 6.84314L24 6.84314V5.84314L0 5.84314L0 6.84314Z"
+                                  fill="black"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="w-full h-max min-h-full flex flex-row items-center justify-start gap-8 p-2 lg:p-10 rounded-md md:col-span-2 "
+             style="background-color: {{ colors[4] }}"
+        >
+            <div class="relative w-full h-max">
+                <img class="w-full aspect-[4/2]  max-h-[138px] md:max-h-[200px] lg:max-h-none lg:aspect-[unset] lg:h-full"
+                     src="{{ template_uri }}/static/images/latest-projects/background.png"
+                     alt="background"/>
+                <div class="absolute inset-0 bg-black/50 rounded-md flex items-center justify-center"
+                     style="backdrop-filter: blur(1px);">
+                    <button class="font-walter-turncoat text-[10px] md:text-base lg:text-xl uppercase rounded-md px-[12px] py-[3px] md:px-4 md:py-2 bg-primary-4">
+                        All Projects
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
