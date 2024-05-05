@@ -1,0 +1,179 @@
+{% set colors = [
+    "#F6F1D1",
+    "#CFD7C7",
+    "#EAFFDA",
+] %}
+
+<div class="w-full h-max max-w-[1440px] mx-auto flex flex-col items-start justify-start gap-6 lg:gap-10 mt-20 lg:mt-40 px-4">
+    <h3 class="font-viga text-xl sm:text-xl md:text-2xl lg:text-4xl">/ Blog</h3>
+    <div class="w-full h-max grid grid-cols-1 sm:grid-cols-2 gap-4 lg:hidden">
+        {% for post in posts %}
+            <a href="{{ post.slug }}">
+                <section
+                        class="w-full h-max min-h-full flex flex-row items-center justify-start gap-2 border-[1px] border-black p-2 rounded-md"
+                        style="background: {{ colors[loop.index-1] }}"
+                >
+                    <img class="w-5/12 max-w-[120px] aspect-auto" src="{{ post.thumbnail }}" alt="{{ post.title }}"/>
+                    <div class="w-max h-full font-viga text-sm">
+                        <span>{{ post.post_date|date("M. j") }}</span>
+                        <h1>/ {{ post.title }}</h1>
+                        <p class="font-inter text-sm">
+                            {{ post.content|slice(0, 50) ~ '...' }}
+                        </p>
+                    </div>
+                </section>
+            </a>
+        {% endfor %}
+        <div
+                class="w-full h-max min-h-full flex flex-row items-center justify-between gap-2 border-[1px] border-black px-2 py-6 bg-primary-4 rounded-md">
+            <span class="font-walter-turncoat text-2xl">All blog posts</span>
+            <svg width="96" height="44" viewBox="0 0 96 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_f_1604_4976)">
+                    <path d="M77.7735 22L72 16.2265L66.2265 22L72 27.7735L77.7735 22ZM16 23H72V21H16V23Z" fill="black"/>
+                </g>
+                <path d="M77.7735 22L72 16.2265L66.2265 22L72 27.7735L77.7735 22ZM16 23H72V21H16V23Z" fill="black"/>
+                <defs>
+                    <filter id="filter0_f_1604_4976" x="0" y="0.226562" width="93.7734" height="43.5469"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                        <feGaussianBlur stdDeviation="8" result="effect1_foregroundBlur_1604_4976"/>
+                    </filter>
+                </defs>
+            </svg>
+        </div>
+    </div>
+    <div class="max-lg:hidden w-full h-max grid grid-cols-4 grid-rows-2 gap-6">
+        <a class="w-full h-max col-span-2 row-span-3 "
+           href="{{ posts[0].slug }}">
+            <section class="w-full h-max border-[2px] border-black rounded-lg overflow-hidden"
+                     style="background: {{ colors[0] }}">
+                <img src="{{ posts[0].thumbnail }}" alt="{{ posts[0].title }}"/>
+                <div class="w-full h-full flex flex-col items-start justify-start gap-4 font-viga text-xl 2xl:text-2xl px-[22px] py-[35px]">
+                    <div class="w-full flex items-start justify-start gap-6">
+                        <span>{{ posts[0].post_date|date("M. j") }}</span>
+                        <h1>/ {{ posts[0].title }}</h1>
+                    </div>
+                    <p class="w-full font-inter text-wrap">
+                        {{ posts[0].content|striptags|slice(0, 100) ~ '...' }}
+                    </p>
+                </div>
+            </section>
+        </a>
+        <a class="w-full h-max min-h-full col-start-3 col-end-5 row-start-1 row-end-2 "
+           href="{{ posts[1].slug }}">
+            <section
+                    class="w-full h-max border-[2px] border-black rounded-lg overflow-hidden flex items-start justify-start"
+                    style="background: {{ colors[1] }}">
+                <div class="w-full h-[290px] min-h-full relative">
+                    <img class="absolute inset-0 w-full h-full" src="{{ posts[1].thumbnail }}"
+                         alt="{{ posts[1].title }}"/>
+                </div>
+                <div class="w-full h-full flex flex-col items-start justify-start gap-4 font-viga text-xl 2xl:text-2xl px-[22px] py-[35px]">
+                    <div class="w-full flex flex-col items-start justify-start gap-2">
+                        <span>{{ posts[1].post_date|date("M. j") }}</span>
+                        <h1>/ {{ posts[1].title }}</h1>
+                    </div>
+                    <p class="w-full font-inter text-wrap">
+                        {{ posts[1].content|striptags|slice(1, 100) ~ '...' }}
+                    </p>
+                </div>
+            </section>
+        </a>
+        <a class="w-full h-max min-h-full col-start-3 col-stop-4 row-start-2 row-end-3 "
+           href="{{ posts[2].slug }}">
+            <section
+                    class="w-full h-max border-[2px] border-black rounded-lg overflow-hidden flex items-start justify-start"
+                    style="background: {{ colors[2] }}">
+                <div class="w-full h-full flex flex-col items-start justify-start gap-4 font-viga text-xl 2xl:text-2xl px-[22px] py-[35px]">
+                    <div class="w-full flex flex-col items-start justify-start gap-2">
+                        <span>{{ posts[2].post_date|date("M. j") }}</span>
+                        <h1>/ {{ posts[2].title }}</h1>
+                    </div>
+                    <p class="w-full font-inter text-wrap">
+                        {{ posts[2].content|striptags|slice(1, 100) ~ '...' }}
+                    </p>
+                </div>
+            </section>
+        </a>
+        <div class="w-full h-full grid grid-cols-1 gap-6 col-start-4 col-end-5 row-start-2 row-end-3">
+            <div
+                    class="w-full h-max min-h-full flex flex-row items-center justify-between gap-2 border-[2px] border-black px-4  bg-primary-4 rounded-md">
+                <span class="font-walter-turncoat text-2xl">All blog posts</span>
+                <svg width="96" height="44" viewBox="0 0 96 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_f_1604_4976)">
+                        <path d="M77.7735 22L72 16.2265L66.2265 22L72 27.7735L77.7735 22ZM16 23H72V21H16V23Z"
+                              fill="black"/>
+                    </g>
+                    <path d="M77.7735 22L72 16.2265L66.2265 22L72 27.7735L77.7735 22ZM16 23H72V21H16V23Z" fill="black"/>
+                    <defs>
+                        <filter id="filter0_f_1604_4976" x="0" y="0.226562" width="93.7734" height="43.5469"
+                                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                            <feGaussianBlur stdDeviation="8" result="effect1_foregroundBlur_1604_4976"/>
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
+            <div class="w-full h-full grid grid-cols-2 place-self-end">
+                <div class="w-full h-full flex items-center justify-center p-4 border-2 border-black bg-[#CFFCFF] rounded-md">
+                    <svg width="105" height="105" viewBox="0 0 105 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.7765 46.0265C18.666 34.1026 19.0025 22.1982 20.2914 10.2969C17.6779 14.0877 14.8328 17.7191 12.2795 21.5518"
+                              stroke="black" stroke-width="8.75" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M7.43726 50.8658C14.3621 47.8644 21.1055 44.3782 27.9491 41.1865" stroke="black"
+                              stroke-width="8.75" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M54.4013 7.78271C57.9971 9.19693 59.166 14.2788 59.0465 17.656C58.7666 25.5773 53.3184 38.0075 43.4828 36.0062C39.334 35.1617 37.7562 29.5804 37.9318 25.9751C38.2851 18.7138 42.5962 6.93631 51.4793 7.00026"
+                              stroke="black" stroke-width="8.75" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M22.9805 77.4181C32.2179 69.8815 40.286 60.7746 48.8515 52.522C59.9005 41.8756 71.5024 31.844 82.6971 21.3574"
+                              stroke="black" stroke-width="8.75" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M55.7781 93.6957C55.7147 86.6325 57.0985 79.6133 57.1761 72.5391C57.1955 70.7889 57.8083 65.3014 56.5995 63.917C56.219 63.4809 56.0853 64.9544 55.8306 65.4744C55.3924 66.3707 54.9809 67.2785 54.5275 68.1675C53.1777 70.8141 51.5264 73.296 49.9209 75.7911"
+                              stroke="black" stroke-width="8.75" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M41.6768 98.1199C50.226 95.8041 58.4995 92.9521 67.1263 90.8633" stroke="black"
+                              stroke-width="8.75" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M94.953 57.3069C100.051 63.8491 97.0953 75.4611 92.5774 81.3728C90.2008 84.4827 85.6909 88.0187 81.7355 85.51C70.644 78.4762 80.7095 54.9718 92.9552 56.1302"
+                              stroke="black" stroke-width="8.75" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+
+                </div>
+                <div class="w-full h-full flex items-center justify-center p-4 border-2 border-black bg-[#E5BE9E] rounded-md">
+                    <svg width="105" height="105" viewBox="0 0 105 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M71.8198 41.0812C63.3673 24.1622 34.8885 27.8853 30.8207 46.4718C28.3663 57.6869 38.7156 65.5356 40.0524 76.038H63.7777C64.4753 73.2298 65.8947 69.8898 66.8776 67.837C68.9205 63.5721 71.8099 60.7844 72.9071 56.0263C73.9508 51.499 73.83 45.1054 71.8198 41.0812Z"
+                              stroke="black" stroke-width="5.86377" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M39.6172 90.3513C39.6104 87.1106 39.4514 83.8699 39.5076 80.6301C39.5299 79.3472 39.3108 77.778 40.4211 76.8811C42.0424 75.572 44.4541 75.3812 46.4662 75.3327C50.2374 75.2426 54.0377 75.2743 57.8127 75.2821C59.532 75.285 62.0979 74.9865 63.6475 75.8408C65.1224 76.6524 65.4957 78.865 65.6615 80.3593C65.9796 83.2228 66.8262 89.6171 64.3951 91.8338C62.8639 93.2302 60.4756 93.5223 58.5148 93.7638C53.3133 94.4038 39.625 94.2767 39.6172 90.3513Z"
+                              stroke="black" stroke-width="5.86377" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M53.4802 94.0396C53.5229 95.8033 53.5437 97.5762 53.4043 99.3371" stroke="black"
+                              stroke-width="5.86377" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M12.345 67.1133C14.1955 66.1367 16.1281 65.3332 17.9985 64.3989" stroke="black"
+                              stroke-width="5.86377" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M12.345 29.1553C14.4107 30.467 16.3867 31.9166 18.4571 33.217" stroke="black"
+                              stroke-width="5.86377" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M53.1183 13.6072C53.0452 11.0093 53.0614 8.42997 53.1448 5.83301" stroke="black"
+                              stroke-width="5.86377" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M85.0964 31.304C87.6896 29.5874 90.3602 27.9748 92.9977 26.3271" stroke="black"
+                              stroke-width="5.86377" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <path d="M80.5715 66.7051C82.5712 68.4971 84.5793 70.2684 86.5147 72.1302" stroke="black"
+                              stroke-width="5.86377" stroke-miterlimit="1.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

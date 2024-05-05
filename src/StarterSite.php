@@ -1,6 +1,7 @@
 <?php
 
 use Timber\Site;
+use Twig\Environment;
 
 /**
  * Class StarterSite
@@ -44,14 +45,22 @@ class StarterSite extends Site
     public function add_to_context(mixed $context): mixed
     {
         $context['portfolios'] = Timber::get_posts(['post_type' => 'portfolio'], ['order' => 'ASC', 'orderby' => 'date']);
+        $context['posts'] = Timber::get_posts([
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'post_per_page' => 3,
+            'orderby' => 'date',
+            'order' => 'DESC',
+        ]);
         $context['menu'] = Timber::get_menu();
         $context['site'] = $this;
         $context['template_uri'] = get_template_directory_uri();
 
+
         return $context;
     }
 
-    public function theme_supports()
+    public function theme_supports(): void
     {
         // Add default posts and comments RSS feed links to head.
         add_theme_support('automatic-feed-links');
@@ -111,7 +120,7 @@ class StarterSite extends Site
      *
      * @param string $text being 'foo', then returned 'foo bar!'.
      */
-    public function myfoo($text)
+    public function myfoo(string $text): string
     {
         $text .= ' bar!';
         return $text;
@@ -122,7 +131,7 @@ class StarterSite extends Site
      *
      * @param Twig\Environment $twig get extension.
      */
-    public function add_to_twig($twig)
+    public function add_to_twig(Environment $twig): Environment
     {
         /**
          * Required when you want to use Twig’s template_from_string.
@@ -144,7 +153,7 @@ class StarterSite extends Site
      *
      * @return array
      */
-    function update_twig_environment_options($options)
+    function update_twig_environment_options(array $options): array
     {
         // $options['autoescape'] = true;
 
